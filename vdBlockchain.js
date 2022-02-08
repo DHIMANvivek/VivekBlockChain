@@ -32,6 +32,24 @@ class BlockChain{
         newBlock.hash = newBlock.calculateHash();
         this.chain.push(newBlock);
     }
+
+    checkBlockValid(){
+        for(let i = 1  ;i< this.chain.length ; i++){
+
+
+            const currentBlock = this.chain[i];
+            const previousBlock = this.chain[i-1];
+
+            if(currentBlock.hash != currentBlock.calculateHash() ){
+                return false;
+            }
+            if(currentBlock.previousHash != previousBlock.hash){
+                return false;
+            }
+        }
+        return true;
+
+    }
 }
 let block1 = new Block(1,"02/01/2022", {mybalance :100});
 let block2 = new Block(2,"03/01/2022", {mybalance : 50});
@@ -41,3 +59,4 @@ myBlockChain.addBLock(block1);
 myBlockChain.addBLock(block2);
 
 console.log(JSON.stringify(myBlockChain, null , 4));
+console.log("validation check for blockchain "+myBlockChain.checkBlockValid());
