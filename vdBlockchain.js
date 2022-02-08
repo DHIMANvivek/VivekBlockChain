@@ -33,8 +33,8 @@ class BlockChain{
         this.chain.push(newBlock);
     }
 }
-let block1 = new Block(1,"02/01/2018", {mybalance :100});
-let block2 = new Block(2,"03/01/2018", {mybalance : 50});
+let block1 = new Block(1,"02/01/2022", {mybalance :100});
+let block2 = new Block(2,"03/01/2022", {mybalance : 50});
 
 let myBlockChain = new BlockChain();
 myBlockChain.addBLock(block1);
